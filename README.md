@@ -1,142 +1,106 @@
-Selenium Cucumber BDD Automation Project
-This project demonstrates the automation of web applications using Selenium WebDriver integrated with Cucumber BDD for behavior-driven testing. The project follows the Page Object Model (POM) design pattern, uses TestNG for test execution, and is integrated with Jenkins for continuous integration.
+# Cucumber BDD Selenium WebDriver Project 2
 
-Key Features
-Selenium WebDriver: Automates web browsers for functional testing.
-Cucumber BDD: Write test scenarios in plain English using Gherkin syntax.
-Page Object Model (POM): Ensures separation of test logic from UI interactions.
-TestNG Integration: Manages test execution and reporting.
-Jenkins Integration: Continuous integration for automated builds and test execution.
-WebDriverManager: Automatically manages browser drivers.
-Maven: Handles project dependencies and build automation.
-Tools & Technologies Used
-Java: Programming language for writing test scripts.
-Selenium WebDriver: Browser automation framework.
-Cucumber: BDD framework for writing readable test cases.
-TestNG: Testing framework for organizing and executing tests.
-Maven: Build automation tool for managing dependencies.
-WebDriverManager: Manages browser drivers.
-Jenkins: Continuous integration server.
-Project Structure
-bash
-Copy code
-SeleniumCucumberProject
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   ├── PageObjects
-│   │   │   │   ├── BasePage.java              # Base class with common functions
-│   │   │   │   ├── LoginPage.java             # Page Object class for Login page
-│   │   │   ├── utils
-│   │   │   │   ├── MainDriver.java            # WebDriver initialization and utilities
-│   ├── resources
-│   │   ├── OR.properties                      # Object repository with element locators
-│   │   ├── config.properties                  # Configuration settings for browser, URL, etc.
-├── test
-│   ├── java
-│   │   ├── stepDefinitions
-│   │   │   ├── LoginPageStepDef.java          # Step definitions for login feature
-│   │   ├── testRunners
-│   │   │   ├── TestRunner.java                # Cucumber TestNG runner
-│   ├── resources
-│   │   ├── features
-│   │   │   ├── loginPage.feature              # Feature file for login functionality
-│   └── target                                 # Generated test reports and outputs
-├── pom.xml                                    # Maven dependencies and plugins
-├── Jenkinsfile                                # Jenkins pipeline configuration
-├── README.md                                  # Project documentation
-Prerequisites
-Java (JDK 8 or higher)
-Maven (for dependency management)
-IDE (Eclipse/IntelliJ)
-WebDriverManager (for automatic driver management)
-Jenkins (for CI/CD integration)
-Installation & Setup
-Clone the Repository:
+This project implements Behavior-Driven Development (BDD) using **Cucumber** with **Selenium WebDriver** for automating web application testing.
 
-bash
-Copy code
-git clone https://github.com/YourUsername/SeleniumCucumberBDDProject.git
-Install Dependencies: Run the following command to download and install required dependencies:
+## Project Overview
 
-bash
-Copy code
-mvn clean install
-Running Tests: Execute the test cases by running:
+This project automates the following key tasks for web testing:
+- Browser automation using **Selenium WebDriver**.
+- BDD testing framework using **Cucumber**.
+- Implementing the **Page Object Model (POM)** for better structure and maintainability.
+- Integration with **TestNG** for running tests and generating reports.
+- Uses **Maven** for dependency management and build automation.
 
-bash
-Copy code
-mvn test
-Jenkins Integration
-This project is integrated with Jenkins for continuous integration and automated test execution. Follow these steps to set up Jenkins:
+## Features
 
-Install Maven and JDK on the Jenkins server.
-Configure a Jenkins job by selecting "Maven Project" and providing the repository URL.
-Add the following steps in the Jenkinsfile for build and test automation:
-groovy
-Copy code
-pipeline {
-    agent any
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/YourUsername/SeleniumCucumberBDDProject.git'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'mvn clean install'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-    }
-}
-Configure triggers for automatic build and test execution on code changes.
-Project Features
-1. Cucumber BDD Integration
-Cucumber is used to write behavior-driven tests in plain English using Gherkin syntax. Here's a sample feature file for login:
+- **Cucumber BDD**: Write test scenarios in Gherkin language for behavior-driven development.
+- **Browser Support**: Automation testing on both Chrome and Firefox.
+- **Page Object Model (POM)**: Organizes code for better reusability and maintainability.
+- **TestNG Integration**: Provides parallel test execution and better test reporting.
+- **WebDriverManager**: Simplifies browser driver management by automatically downloading the necessary binaries.
 
-gherkin
-Copy code
-Feature: Login Feature
+## Tools & Technologies Used
+ Java: Programming language for writing test scripts.
+ Selenium WebDriver: Browser automation framework.
+ Cucumber: BDD framework for writing readable test cases.
+ TestNG: Testing framework for organizing and executing tests.
+ Maven: Build automation tool for managing dependencies.
+ WebDriverManager: Manages browser drivers.
+ Jenkins: Continuous integration server.
 
+
+## Project Structure
+
+📦Project Root ┣ 📂src ┃ ┣ 📂main ┃ ┃ ┣ 📂java ┃ ┃ ┃ ┣ 📂PageObjects ┃ ┃ ┃ ┃ ┣ 📜BasePage.java // Parent class for common actions ┃ ┃ ┃ ┃ ┣ 📜LoginPage.java // Page Object for login functionality ┃ ┃ ┃ ┣ 📂utils ┃ ┃ ┃ ┃ ┣ 📜MainDriver.java // WebDriver setup and utility methods ┃ ┃ ┣ 📂resources ┃ ┃ ┃ ┣ 📜OR.properties // Object Repository (Element locators) ┃ ┃ ┃ ┣ 📜config.properties // Configurations (Browser, URL, Waits)
+
+┣ 📂test ┃ ┣ 📂java ┃ ┃ ┣ 📂stepDefinitions ┃ ┃ ┃ ┣ 📜LoginPageStepDef.java // Step definitions for login page feature ┃ ┃ ┣ 📂testRunners ┃ ┃ ┃ ┣ 📜TestRunner.java // Cucumber TestNG runner
+
+┃ ┣ 📂resources ┃ ┃ ┣ 📂features ┃ ┃ ┃ ┣ 📜loginPage.feature // Feature file for login scenario ┃ ┃ ┃ ┣ 📜<additional-features>.feature // Other feature files
+
+┣ 📂target // Generated files and reports ┣ 📜pom.xml // Maven dependencies and build configurations ┣ 📜README.md // Project documentation
+
+ src/main/java: Contains page object files and utility classes.
+ BasePage.java: The parent class that initializes the WebDriver and WebDriverWait.
+ LoginPage.java: Page Object for login functionality.
+ MainDriver.java: Initializes WebDriver, browser setup, and WebDriverWait management.
+ src/test/java: Contains step definitions and test runners.
+ StepDefinitions: Defines the steps corresponding to the Cucumber scenarios.
+ TestRunner.java: The Cucumber test runner integrating with TestNG.
+ src/test/resources: Contains Cucumber feature files and configuration properties.
+ features/: Holds the .feature files written in Gherkin.
+ OR.properties: Object repository for element locators.
+ config.properties: Configuration file for browser settings, wait times, and URLs.
+
+
+## Installation & Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/SaimukundR/Cucumber7BDDProject2.git
+
+# Install Dependencies: Navigate to the project folder and install Maven dependencies:
+
+1. bash
+   mvn clean install
+
+# Running Tests: Run the Cucumber tests with Maven:
+2. bash
+   mvn test
+
+# Generate Cucumber Reports: After running the tests, the reports can be generated for better visibility:
+3. bash  
+   mvn verify
+   
+## Key Features of Cucumber BDD
+Gherkin Syntax: Write scenarios in a human-readable language to define behavior.
+Feature Files: Scenarios are grouped in .feature files.
+Step Definitions: Java methods are linked to steps defined in the Gherkin scenarios.
+Hooks: Setup and teardown processes can be handled via @Before and @After hooks.
+Example Cucumber Scenario
+Example Gherkin scenario for logging into the application:
+
+## gherkin
+Feature: Login Functionality
   Scenario: User logs in with valid credentials
-    Given the user is on the login page
-    When the user enters a valid username and password
-    And clicks on the login button
-    Then the user should be logged in successfully
-2. Selenium WebDriver
-The WebDriver handles browser automation, interacting with web elements such as input fields, buttons, and links.
+    Given user is on the login page
+    When user enters valid username and password
+    And user clicks on login button
+    Then user should be logged in successfully
 
-3. Page Object Model (POM)
-The POM design pattern is implemented to maintain cleaner and reusable code. Each web page has its own corresponding class with locators and methods for interacting with the page.
+## Prerequisites
+Java JDK 8 or higher: Ensure that Java is installed.
+Maven: Install Maven for managing dependencies.
+WebDriverManager: The project uses WebDriverManager for handling browser drivers.
+Jenkins (for CI/CD integration)
 
-4. TestNG & Reports
-Test execution is managed using TestNG which also generates detailed reports. TestNG provides the flexibility to execute test suites, groups, and individual tests.
-
-5. Jenkins Integration
-Jenkins automates build and test processes, ensuring continuous integration. Every code change is built, tested, and reported through Jenkins.
-
-How to Contribute
-Fork the repository.
-Create a branch:
-bash
-Copy code
-git checkout -b feature/your-feature
-Make your changes and commit:
-bash
-Copy code
-git commit -m "Added new feature"
-Push to the branch:
-bash
-Copy code
-git push origin feature/your-feature
-Create a pull request.
-Future Enhancements
+## Future Enhancements
 Add additional test cases for different modules.
 Implement parallel test execution.
 Improve Jenkins pipeline for distributed testing.
+
+## How to Contribute
+Fork the repository.
+Create a new branch (git checkout -b feature/new-feature).
+Make your changes and commit (git commit -m 'Added new feature').
+Push the branch (git push origin feature/new-feature).
+Open a pull request.
