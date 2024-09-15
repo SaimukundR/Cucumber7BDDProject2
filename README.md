@@ -20,17 +20,17 @@ This project automates the following key tasks for web testing:
 - **WebDriverManager**: Simplifies browser driver management by automatically downloading the necessary binaries.
 
 ## Tools & Technologies Used
- Java: Programming language for writing test scripts.
- Selenium WebDriver: Browser automation framework.
- Cucumber: BDD framework for writing readable test cases.
- TestNG: Testing framework for organizing and executing tests.
- Maven: Build automation tool for managing dependencies.
- WebDriverManager: Manages browser drivers.
- Jenkins: Continuous integration server.
-
+- **Java**: Programming language for writing test scripts.
+- **Selenium WebDriver**: Browser automation framework.
+- **Cucumber**: BDD framework for writing readable test cases.
+- **TestNG**:  Testing framework for organizing and executing tests.
+- **Maven**: Build automation tool for managing dependencies.
+- **WebDriver Manager**: Manages browser drivers
+- **Jenkins**: Continuous integration server.
 
 ## Project Structure
 
+```plaintext
 SeleniumCucumberProject
 ├── src
 │   ├── main
@@ -54,58 +54,50 @@ SeleniumCucumberProject
 │   │   │   ├── loginPage.feature              # Feature file for login functionality
 │   └── target                                 # Generated test reports and outputs
 ├── pom.xml                                    # Maven dependencies and plugins
+├── Jenkinsfile                                # Jenkins pipeline configuration
 ├── README.md                                  # Project documentation
-
  
 ## Installation & Setup
 
 1. **Clone the repository**:
-   ```bash
+
    git clone https://github.com/SaimukundR/Cucumber7BDDProject2.git
 
 ## Install Dependencies: Navigate to the project folder and install Maven dependencies:
 
-1. bash
-   mvn clean install
-
- Running Tests: Run the Cucumber tests with Maven:
-2. bash
-   mvn test
-
- Generate Cucumber Reports: After running the tests, the reports can be generated for better visibility:
-3. bash  
-   mvn verify
+- **mvn clean install**: Continuous integration server.
+-**mvn test**: Running Tests: Run the Cucumber tests with Maven
+-**mvn verify**: Generate Cucumber Reports: After running the tests, the reports can be generated for better visibiliy
+ 
    
 ## Key Features of Cucumber BDD
-Gherkin Syntax: Write scenarios in a human-readable language to define behavior.
-Feature Files: Scenarios are grouped in .feature files.
-Step Definitions: Java methods are linked to steps defined in the Gherkin scenarios.
-Hooks: Setup and teardown processes can be handled via @Before and @After hooks.
-Example Cucumber Scenario
-Example Gherkin scenario for logging into the application:
+-**Gherkin Syntax**: Write scenarios in a human-readable language to define behavior.
+-**Feature Files**: Scenarios are grouped in .feature files.
+-**Step Definitions**: Java methods are linked to steps defined in the Gherkin scenarios.
+-**Hooks**: Setup and teardown processes can be handled via @Before and @After hooks.
 
 ## gherkin
-Feature: Login Functionality
-  Scenario: User logs in with valid credentials
-    Given user is on the login page
-    When user enters valid username and password
-    And user clicks on login button
-    Then user should be logged in successfully
+- Feature: Login Functionality
+-  Scenario: User logs in with valid credentials
+-    Given user is on the login page
+-    When user enters valid username and password
+-    And user clicks on login button
+-    Then user should be logged in successfully
 
 ## Prerequisites
-Java JDK 8 or higher: Ensure that Java is installed.
-Maven: Install Maven for managing dependencies.
-WebDriverManager: The project uses WebDriverManager for handling browser drivers.
-Jenkins (for CI/CD integration)
+-Java JDK 8 or higher: Ensure that Java is installed.
+-Maven: Install Maven for managing dependencies.
+-WebDriverManager: The project uses WebDriverManager for handling browser drivers.
+-Jenkins (for CI/CD integration)
 
 ## Future Enhancements
-Add additional test cases for different modules.
-Implement parallel test execution.
-Improve Jenkins pipeline for distributed testing.
+-Add additional test cases for different modules.
+-Implement parallel test execution.
+-Improve Jenkins pipeline for distributed testing.
 
 ## How to Contribute
-Fork the repository.
-Create a new branch (git checkout -b feature/new-feature).
-Make your changes and commit (git commit -m 'Added new feature').
-Push the branch (git push origin feature/new-feature).
-Open a pull request.
+-Fork the repository.
+-Create a new branch (git checkout -b feature/new-feature).
+-Make your changes and commit (git commit -m 'Added new feature').
+-Push the branch (git push origin feature/new-feature).
+-Open a pull request.
