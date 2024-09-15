@@ -31,43 +31,48 @@ This project automates the following key tasks for web testing:
 
 ## Project Structure
 
-📦Project Root ┣ 📂src ┃ ┣ 📂main ┃ ┃ ┣ 📂java ┃ ┃ ┃ ┣ 📂PageObjects ┃ ┃ ┃ ┃ ┣ 📜BasePage.java // Parent class for common actions ┃ ┃ ┃ ┃ ┣ 📜LoginPage.java // Page Object for login functionality ┃ ┃ ┃ ┣ 📂utils ┃ ┃ ┃ ┃ ┣ 📜MainDriver.java // WebDriver setup and utility methods ┃ ┃ ┣ 📂resources ┃ ┃ ┃ ┣ 📜OR.properties // Object Repository (Element locators) ┃ ┃ ┃ ┣ 📜config.properties // Configurations (Browser, URL, Waits)
+SeleniumCucumberProject
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   ├── PageObjects
+│   │   │   │   ├── BasePage.java              # Base class with common functions
+│   │   │   │   ├── LoginPage.java             # Page Object class for Login page
+│   │   │   ├── utils
+│   │   │   │   ├── MainDriver.java            # WebDriver initialization and utilities
+│   ├── resources
+│   │   ├── OR.properties                      # Object repository with element locators
+│   │   ├── config.properties                  # Configuration settings for browser, URL, etc.
+├── test
+│   ├── java
+│   │   ├── stepDefinitions
+│   │   │   ├── LoginPageStepDef.java          # Step definitions for login feature
+│   │   ├── testRunners
+│   │   │   ├── TestRunner.java                # Cucumber TestNG runner
+│   ├── resources
+│   │   ├── features
+│   │   │   ├── loginPage.feature              # Feature file for login functionality
+│   └── target                                 # Generated test reports and outputs
+├── pom.xml                                    # Maven dependencies and plugins
+├── README.md                                  # Project documentation
 
-┣ 📂test ┃ ┣ 📂java ┃ ┃ ┣ 📂stepDefinitions ┃ ┃ ┃ ┣ 📜LoginPageStepDef.java // Step definitions for login page feature ┃ ┃ ┣ 📂testRunners ┃ ┃ ┃ ┣ 📜TestRunner.java // Cucumber TestNG runner
-
-┃ ┣ 📂resources ┃ ┃ ┣ 📂features ┃ ┃ ┃ ┣ 📜loginPage.feature // Feature file for login scenario ┃ ┃ ┃ ┣ 📜<additional-features>.feature // Other feature files
-
-┣ 📂target // Generated files and reports ┣ 📜pom.xml // Maven dependencies and build configurations ┣ 📜README.md // Project documentation
-
- src/main/java: Contains page object files and utility classes.
- BasePage.java: The parent class that initializes the WebDriver and WebDriverWait.
- LoginPage.java: Page Object for login functionality.
- MainDriver.java: Initializes WebDriver, browser setup, and WebDriverWait management.
- src/test/java: Contains step definitions and test runners.
- StepDefinitions: Defines the steps corresponding to the Cucumber scenarios.
- TestRunner.java: The Cucumber test runner integrating with TestNG.
- src/test/resources: Contains Cucumber feature files and configuration properties.
- features/: Holds the .feature files written in Gherkin.
- OR.properties: Object repository for element locators.
- config.properties: Configuration file for browser settings, wait times, and URLs.
-
-
+ 
 ## Installation & Setup
 
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/SaimukundR/Cucumber7BDDProject2.git
 
-# Install Dependencies: Navigate to the project folder and install Maven dependencies:
+## Install Dependencies: Navigate to the project folder and install Maven dependencies:
 
 1. bash
    mvn clean install
 
-# Running Tests: Run the Cucumber tests with Maven:
+ Running Tests: Run the Cucumber tests with Maven:
 2. bash
    mvn test
 
-# Generate Cucumber Reports: After running the tests, the reports can be generated for better visibility:
+ Generate Cucumber Reports: After running the tests, the reports can be generated for better visibility:
 3. bash  
    mvn verify
    
