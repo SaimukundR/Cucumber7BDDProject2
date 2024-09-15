@@ -56,8 +56,9 @@ SeleniumCucumberProject
 ├── pom.xml                                    # Maven dependencies and plugins
 ├── Jenkinsfile                                # Jenkins pipeline configuration
 ├── README.md                                  # Project documentation
- 
-## Installation & Setup
+```
+
+## Project Structure
 
 1. **Clone the repository**:
 
